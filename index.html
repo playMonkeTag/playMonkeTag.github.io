@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Roblox Game Redirect</title>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const placeId = '18306442585';
-            const url = new URL(window.location.href);
-            const gameInstanceId = url.searchParams.get('gameInstanceId');
+<meta charset="UTF-8">
+<title>Roblox Game Redirect</title>
+<script>
+(function() {
+    const PLACE_ID = '18306442585';
+    const params = new URLSearchParams(window.location.search);
+    let redirectUrl = `roblox://experiences/start?placeId=${PLACE_ID}`;
 
-            let redirectUrl = `roblox://experiences/start?placeId=${placeId}`;
-            
-            if (gameInstanceId) {
-                redirectUrl += `&gameInstanceId=${encodeURIComponent(gameInstanceId)}`;
-            }
+    if (params.has('jobId')) {
+        redirectUrl += `&gameInstanceId=${encodeURIComponent(params.get('jobId'))}`;
+    } else if (params.has('server')) {
+        redirectUrl += `&server=${encodeURIComponent(params.get('code'))}`;
+    }
 
-            console.log('Redirect URL:', redirectUrl);
-            window.location.href = redirectUrl;
-        });
-    </script>
+    console.log('Redirect URL:', redirectUrl);
+    window.location.replace(redirectUrl);
+})();
+</script>
 </head>
 <body>
-    <p>Redirecting to Roblox game...</p>
+<p>Redirecting to Roblox game...</p>
 </body>
 </html>
