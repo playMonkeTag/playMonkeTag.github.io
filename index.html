@@ -12,7 +12,8 @@
     if (params.has('jobId')) {
         redirectUrl += `&gameInstanceId=${encodeURIComponent(params.get('jobId'))}`;
     } else if (params.has('server')) {
-        redirectUrl += `&server=${encodeURIComponent(params.get('code'))}`;
+        const launchData = JSON.stringify({ server: params.get('server') });
+        redirectUrl += `&launchData=${encodeURIComponent(launchData)}`;
     }
 
     console.log('Redirect URL:', redirectUrl);
