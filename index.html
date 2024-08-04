@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -23,5 +23,82 @@
 </head>
 <body>
 <p>Redirecting to Roblox game...</p>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Roblox Game Launcher</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+    }
+    .container {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        color: #333;
+        margin-bottom: 1rem;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    input, button {
+        margin-top: 1rem;
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+    button {
+        background-color: #0066cc;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #0052a3;
+    }
+    .error {
+        color: red;
+        margin-top: 0.5rem;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Roblox Game Launcher</h1>
+    <form action="/join" method="get" onsubmit="return validateForm()">
+        <input type="text" id="serverCode" name="server" placeholder="Enter server code (e.g., word-word-word)" required>
+        <button type="submit">Join Game</button>
+    </form>
+    <p id="error" class="error"></p>
+</div>
+
+<script>
+function validateForm() {
+    const serverCode = document.getElementById('serverCode').value;
+    const errorElement = document.getElementById('error');
+    const serverCodePattern = /^[a-z]+-[a-z]+-[a-z]+$/;
+
+    if (!serverCodePattern.test(serverCode)) {
+        errorElement.textContent = "Invalid server code. Please use the format: word-word-word";
+        return false;
+    }
+    errorElement.textContent = "";
+    return true;
+}
+</script>
 </body>
 </html>
