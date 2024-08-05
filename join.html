@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join PLS DONATE Game</title>
+    <title>Join Monke Tag</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,21 +11,21 @@
         <nav>
             <div class="logo">ar</div>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#store">Store</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="">Home</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section class="join-hero">
-            <h1>Join Game</h1>
-            <p>Enter the server code to join a PLS DONATE game session.</p>
-            <form id="join-form" onsubmit="return validateForm()">
-                <input type="text" id="serverCode" name="server" placeholder="Enter server code (e.g., word word word)" required>
-                <button type="submit" class="join-now">Join Game</button>
-            </form>
-            <p id="error" class="error"></p>
+            <div class="join-content">
+                <h1>Join Game</h1>
+                <p>Enter the server code to join a Monke Tag game session.</p>
+                <form id="join-form" onsubmit="return handleJoin(event)">
+                    <input type="text" id="serverCode" name="server" placeholder="Enter server code (e.g., word word word)" required>
+                    <button type="submit" class="cta-button">Join Game</button>
+                </form>
+                <p id="error" class="error"></p>
+            </div>
         </section>
     </main>
     <script src="script.js"></script>
