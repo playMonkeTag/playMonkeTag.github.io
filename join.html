@@ -3,46 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joining Roblox Game</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Join PLS DONATE Game</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Joining Roblox Game</h1>
-        <p id="status">Connecting to the game server...</p>
-        <div id="error" class="error"></div>
-        <a href="index.html" class="button">Back to Home</a>
-    </div>
-    <script>
-    (function() {
-        const PLACE_ID = '18306442585';
-        const params = new URLSearchParams(window.location.search);
-        let redirectUrl = `roblox://experiences/start?placeId=${PLACE_ID}`;
-
-        function isValidServerCode(code) {
-            const serverCodePattern = /^[a-z]+ [a-z]+ [a-z]+$/;
-            return serverCodePattern.test(code);
-        }
-
-        if (params.has('server')) {
-            const serverCode = params.get('server');
-            if (isValidServerCode(serverCode)) {
-                const launchData = JSON.stringify({ server: serverCode.replace(/ /g, '-') });
-                redirectUrl += `&launchData=${encodeURIComponent(launchData)}`;
-                console.log('Redirect URL:', redirectUrl);
-                window.location.replace(redirectUrl);
-            } else {
-                console.error('Invalid server code format');
-                document.getElementById('status').style.display = 'none';
-                document.getElementById('error').textContent = 'Error: Invalid server code format. Please use the format: word word word.';
-            }
-        } else {
-            console.error('No server code provided');
-            document.getElementById('status').style.display = 'none';
-            document.getElementById('error').textContent = 'Error: No server code provided.';
-        }
-    })();
-    </script>
+    <header>
+        <nav>
+            <div class="logo">ar</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#store">Store</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="join-hero">
+            <h1>Join Game</h1>
+            <p>Enter the server code to join a PLS DONATE game session.</p>
+            <form id="join-form" onsubmit="return validateForm()">
+                <input type="text" id="serverCode" name="server" placeholder="Enter server code (e.g., word word word)" required>
+                <button type="submit" class="join-now">Join Game</button>
+            </form>
+            <p id="error" class="error"></p>
+        </section>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
