@@ -13,7 +13,7 @@ body {
 }
 
 header {
-    padding: 1rem 5%;
+    padding: 2rem 5%;
     position: absolute;
     top: 0;
     left: 0;
@@ -23,7 +23,7 @@ header {
 
 nav {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -31,15 +31,17 @@ nav {
     font-size: 2rem;
     font-weight: bold;
     color: #ff6b6b;
+    margin-bottom: 1rem;
 }
 
 nav ul {
     display: flex;
     list-style: none;
+    justify-content: center;
 }
 
 nav ul li {
-    margin-left: 2rem;
+    margin: 0 1rem;
 }
 
 nav ul li a {
@@ -53,27 +55,27 @@ nav ul li a:hover {
     color: #ff6b6b;
 }
 
-.hero, .join-hero {
+.hero, .join-hero, .play-hero {
     height: 100vh;
     display: flex;
     align-items: center;
-    background-image: url('https://images.unsplash.com/photo-1722648404006-1197d5c0b51f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-image: url('https://www.quataun.com/crowd.webp');
     background-size: cover;
     background-position: center;
     position: relative;
 }
 
-.hero::before, .join-hero::before {
+.hero::before, .join-hero::before, .play-hero::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
 }
 
-.hero-content, .join-content {
+.hero-content, .join-content, .play-content {
     position: relative;
     z-index: 1;
     padding-left: 10%;
