@@ -1,4 +1,5 @@
-function validateForm() {
+function handleJoin(event) {
+    event.preventDefault();
     const serverCodeInput = document.getElementById('serverCode');
     const errorElement = document.getElementById('error');
     const serverCode = serverCodeInput.value.trim();
@@ -10,8 +11,12 @@ function validateForm() {
     }
 
     errorElement.textContent = "";
-    alert("Joining game with server code: " + serverCode);
-    return false; 
+    
+    const joinUrl = `roblox://experiences/start?placeId=18306442585&launchData=${encodeURIComponent(JSON.stringify({ server: serverCode }))}`;
+    
+    window.location.href = joinUrl;
+
+    return false;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
