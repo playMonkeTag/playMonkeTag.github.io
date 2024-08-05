@@ -8,12 +8,17 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #1a1a2e;
+    background-color: #0f0f1a;
     color: white;
 }
 
 header {
     padding: 1rem 5%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
 }
 
 nav {
@@ -25,6 +30,7 @@ nav {
 .logo {
     font-size: 2rem;
     font-weight: bold;
+    color: #ff6b6b;
 }
 
 nav ul {
@@ -39,14 +45,18 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff6b6b;
 }
 
 .hero, .join-hero {
     height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 5%;
+    align-items: center;
     background-image: url('https://plaxtony.com/img/a/u/aucwihcfhc-1024x576.jpg');
     background-size: cover;
     background-position: center;
@@ -60,40 +70,49 @@ nav ul li a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
 }
 
-.hero *, .join-hero * {
+.hero-content, .join-content {
     position: relative;
     z-index: 1;
+    padding-left: 10%;
+    max-width: 600px;
 }
 
 h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+h1 span {
+    color: #ff6b6b;
 }
 
 p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
+    opacity: 0.8;
 }
 
-.play-now, .join-now {
-    background-color: white;
-    color: #1a1a2e;
+.cta-button {
+    background-color: #ff6b6b;
+    color: white;
     border: none;
     padding: 0.75rem 2rem;
     font-size: 1rem;
     font-weight: bold;
-    border-radius: 25px;
+    border-radius: 50px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     text-decoration: none;
     display: inline-block;
 }
 
-.play-now:hover, .join-now:hover {
-    background-color: #e0e0e0;
+.cta-button:hover {
+    background-color: #ff8787;
+    transform: translateY(-2px);
 }
 
 #join-form {
@@ -105,20 +124,27 @@ p {
 
 #serverCode {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.75rem 1.5rem;
     margin-bottom: 1rem;
     border: none;
-    border-radius: 25px;
+    border-radius: 50px;
     font-size: 1rem;
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
+    transition: background-color 0.3s ease;
+}
+
+#serverCode:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    outline: none;
 }
 
 #serverCode::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .error {
     color: #ff6b6b;
     margin-top: 1rem;
+    font-weight: 600;
 }
