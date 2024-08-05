@@ -10,7 +10,8 @@ function validateForm() {
     }
 
     errorElement.textContent = "";
-    return true;
+    alert("Joining game with server code: " + serverCode);
+    return false; 
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -27,18 +28,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         e.target.value = words.join(' ');
-
-        const visualValue = words.join('-');
-        e.target.setAttribute('data-visual-value', visualValue);
-    });
-
-    serverCodeInput.addEventListener('focus', function(e) {
-        e.target.type = 'text';
-    });
-
-    serverCodeInput.addEventListener('blur', function(e) {
-        const visualValue = e.target.getAttribute('data-visual-value');
-        e.target.type = 'text';
-        e.target.value = visualValue;
     });
 });
